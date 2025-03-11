@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="border container mt-4 rounded p-4">
+      
+            <a href="{% url 'add' %}">  New User</a>
+       
+        <h3>Details Student</h3>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Email</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for s in student %}
+                    <tr>
+                        <th scope="row">{{s.id}}</th>
+                        <td>{{s.name}}</td>
+                        <td>{{s.contact}}</td>
+                        <td>{{s.email}}</td>
+                        <td>
+                            <a href="update/{{s.id}}">Edit</a>
+                            <a href="delete/{{s.id}}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+         
+            </tbody>
+          </table>
+    </div>
+{% endblock content %}
